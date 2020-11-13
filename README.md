@@ -2,4 +2,4 @@
 Curso de React JS
 
 
-# Doug Caval
+# by Doug Caval
