@@ -2,4 +2,7 @@
 Curso de React JS
 
 
-# Doug Caval
+App  feito através do curso da RocketSeat. 
+
+
+# by Doug Caval

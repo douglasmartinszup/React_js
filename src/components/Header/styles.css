@@ -1,0 +1,11 @@
+header#main-header {
+  width: 100%; /*  para ocupar a largura toda */
+  height: 60px;
+  background: #c53b15;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  display: flex; /* centralizar o texto do header ao centro */
+  justify-content: center; /* alinhar todo conteudo do header ao centro */
+  align-items: center; /* alinhar todo conteudo do header ao centro */
+}
