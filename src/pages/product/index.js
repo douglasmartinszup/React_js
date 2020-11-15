@@ -30,3 +30,6 @@ export default class Product extends Component {
     );
   }
 }
+
+
+// by Doug Caval
