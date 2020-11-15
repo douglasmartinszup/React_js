@@ -1,7 +1,32 @@
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
+import api from "../../services/api";
+// eslint-disable-next-line no-unused-vars
+import styles from './styles.css';
 export default class Product extends Component {
-    render () {
-        return <h1>Products details</h1>;
-    }
+  state = {
+    product: {},
+  };
+
+  async componentDidMount() {
+    const { id } = this.props.match.params;
+
+    const response = await api.get(`/products/${id}`);
+
+    this.setState({ product: response.data });
+  }
+
+  render() {
+    const { product } = this.state;
+
+    return (
+      <div className="product-info">
+        <h1>{product.title}</h1>
+        <p>{product.description}</p>
+
+        <p>
+          URL: <a href={product.url}>{product.url}</a>
+        </p>
+      </div>
+    );
+  }
 }
