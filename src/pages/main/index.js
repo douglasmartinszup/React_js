@@ -24,14 +24,14 @@ export default class Main extends Component {
     const response = await api.get(`/products?page=${page}`);
     
     /*Armazenando dados para rotas */
-    const {docs, ...productInfo} = response.data;
+    const { docs, ...productInfo } = response.data;
 
     
     /* Armazenando a response dentro de products*/
     this.setState({ products: docs, productInfo, page });
   };
 
-  pervPage = () => {
+  prevPage = () => {
     
     // eslint-disable-next-line no-unused-vars
     const { page, productInfo } = this.state;
