@@ -1,4 +1,4 @@
 # React_js
 Curso de React JS
 
-# by Doug Caval
+# by Doug Caval™
