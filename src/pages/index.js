@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import api from "../../services/api";
+import api from "../../../services/api";
 // eslint-disable-next-line no-unused-vars
 import styles from "./styles.css";
-import { Link } from "react-router-dom";
 
 export default class Main extends Component {
   /* Criar uma variável dentro de estado para armezanarmos 
@@ -11,7 +10,7 @@ export default class Main extends Component {
   state = {
     products: [],
     productInfo: {},
-    page: 1,
+    page: 1
   };
   /* executar  uma ação logo que um componente é exibido em tela : componentDidMount  */
   componentDidMount() {
@@ -23,19 +22,21 @@ export default class Main extends Component {
     /* criei uma const para receber a api
      que estamos solicitando com o api.get */
     const response = await api.get(`/products?page=${page}`);
-
+    
     /*Armazenando dados para rotas */
     const { docs, ...productInfo } = response.data;
 
+    
     /* Armazenando a response dentro de products*/
     this.setState({ products: docs, productInfo, page });
   };
 
   prevPage = () => {
+    
     // eslint-disable-next-line no-unused-vars
     const { page, productInfo } = this.state;
-
-    if (page === 1) return;
+    
+    if ( page === 1) return;
 
     const pageNumber = page - 1;
 
@@ -47,13 +48,13 @@ export default class Main extends Component {
 
     if (page === productInfo.pages) return;
 
-    const pageNumber = page + 1;
+    const pageNumber = page + 1 ;
 
     this.loadProducts(pageNumber);
   };
 
   render() {
-    const { products, page, productInfo } = this.state;
+    const { products , page , productInfo} = this.state;
 
     return (
       //listando os titulos dos produtos das response dentro de uma div
@@ -62,16 +63,12 @@ export default class Main extends Component {
           <article key={product._id}>
             <strong>{product.title}</strong>
             <p>{product.description}</p>
-            <Link to={`/products/${product._id}`}>Acessar produtos</Link>
+            <a href="#">Acessar produtos</a>
           </article>
         ))}
         <div className="actions">
-          <button disabled={page === 1} onClick={this.prevPage}>
-            Anterior
-          </button>
-          <button disabled={page === productInfo.pages} onClick={this.nextPage}>
-            Próxima
-          </button>
+          <button disabled={page === 1} onClick={this.prevPage}>Anterior</button>
+          <button disabled={page === productInfo.pages} onClick={this.nextPage}>Próxima</button>
         </div>
       </div>
     );
